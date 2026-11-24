@@ -19,7 +19,7 @@ HTML and CSS (no frameworks, no build step), hosted free by GitHub Pages.
 
 Double-click `index.html` to open it in your browser. Refresh the browser after each save.
 
-## Common edits
+## Common edits - If you want to reuse
 
 - **Change any text:** open `index.html` in VS Code, press `Ctrl+F`, search for a few words of the
   text you want to change, edit it, save. Each section starts with a comment such as
@@ -51,4 +51,3 @@ git commit -m "Describe what you changed"
 git push
 ```
 
-GitHub rebuilds the site automatically; changes appear at https://imdsarfraz.github.io within a minute or two.
