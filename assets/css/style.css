@@ -366,18 +366,6 @@ ul {
   color: var(--ink-2);
 }
 
-.hero-affiliation {
-  display: inline-block;
-  max-width: 100%;
-}
-
-.hero-affiliation img {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  vertical-align: middle;
-}
-
 .core-areas {
   margin-top: 1.5rem;
 }
