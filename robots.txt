@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imdsarfraz.github.io/sitemap.xml
