@@ -240,16 +240,18 @@
             <ul class="badges">
               <li class="badge">Course-based project · 365 Careers</li>
               <li class="badge badge-neutral">Credit risk</li>
-              <li class="badge badge-progress">In progress</li>
             </ul>
-            <h3 id="p-credit">LendingClub: Repayment Risk by Loan Grade</h3>
+            <h3 id="p-credit">LendingClub: Credit Risk Models and Expected Loss</h3>
             <ul class="project-summary">
-              <li>Feature analysis is complete. <strong>My next step is to fit a logistic regression model</strong> to estimate the probability of default and test it on loans not used for training.</li>
+              <li>Using <strong>466,285 loans</strong>, built a probability-of-default (PD) model with logistic regression, turned it into a 300–850 credit scorecard, and added loss-given-default (LGD) and exposure-at-default (EAD) models.</li>
+              <li>On 93,257 loans held out from training, the PD model reached an <strong>AUC of 0.684</strong> (Gini 0.368), and its predicted default rates were close to the actual rates in all 10 risk groups. A cut-off score of 600 would approve 74% of these loans and lower their bad rate from 10.9% to 7.8%.</li>
+              <li>Combined PD × LGD × EAD into an <strong>expected loss of $509 million on $6.66 billion lent (7.6%)</strong>, rising from 2.1% for grade A to 20.5% for grade G.</li>
             </ul>
             <ul class="tags" aria-label="Tools used">
               <li>Python</li>
               <li>pandas</li>
               <li>NumPy</li>
+              <li>statsmodels</li>
               <li>scikit-learn</li>
               <li>Matplotlib</li>
               <li>Seaborn</li>
@@ -262,85 +264,86 @@
             <!-- chart:credit:start -->
             <figure class="chart credit-chart">
               <figcaption>
-                <p class="chart-title" id="credit-chart-label">Default rate by loan grade</p>
-                <p class="chart-sub">Training set: 373,028 Lending Club loans issued 2007–2014.</p>
+                <p class="chart-title" id="credit-chart-label">Expected loss by loan grade</p>
+                <p class="chart-sub">Share of the amount lent that the models expect to lose, across all 466,285 Lending Club loans issued 2007–2014.</p>
                 <p class="chart-hint">Scroll sideways to see the full chart, or open the data table.</p>
               </figcaption>
               <div class="chart-scroll" role="region" aria-labelledby="credit-chart-label" tabindex="0">
             <svg viewBox="0 0 360 244" role="img" aria-labelledby="credit-svg-title" aria-describedby="credit-svg-desc">
-              <title id="credit-svg-title">Default rate by loan grade</title>
-              <desc id="credit-svg-desc">Bar chart of 373,028 training-set loans: the default rate rises steadily from 3.9 percent for grade A to 27.2 percent for grade G. Full values are in the data table.</desc>
-              <line class="grid" x1="40" x2="352" y1="134" y2="134"/>
-              <line class="grid" x1="40" x2="352" y1="78" y2="78"/>
-              <line class="grid" x1="40" x2="352" y1="22" y2="22"/>
+              <title id="credit-svg-title">Expected loss by loan grade</title>
+              <desc id="credit-svg-desc">Bar chart of all 466,285 loans: expected loss as a share of the amount lent rises steadily from 2.1 percent for grade A to 20.5 percent for grade G. Full values are in the data table.</desc>
+              <line class="grid" x1="40" x2="352" y1="115" y2="115"/>
+              <line class="grid" x1="40" x2="352" y1="40" y2="40"/>
               <text class="tick" x="36" y="194" text-anchor="end">0%</text>
-              <text class="tick" x="36" y="138" text-anchor="end">10%</text>
-              <text class="tick" x="36" y="82" text-anchor="end">20%</text>
-              <text class="tick" x="36" y="26" text-anchor="end">30%</text>
+              <text class="tick" x="36" y="119" text-anchor="end">10%</text>
+              <text class="tick" x="36" y="44" text-anchor="end">20%</text>
               <g class="bar-group">
-                <title>Grade A: 3.9% default rate (59,759 loans)</title>
+                <title>Grade A: 2.1% expected loss ($21.3m of $1,000.9m lent)</title>
                 <rect class="hit" x="40.0" y="22" width="44.6" height="168"/>
-                <path class="bar" d="M50.3,190 V172.2 Q50.3,168.2 54.3,168.2 H70.3 Q74.3,168.2 74.3,172.2 V190 Z" fill="#2a78d6"/>
+                <path class="bar" d="M50.3,190 V178.0 Q50.3,174.0 54.3,174.0 H70.3 Q74.3,174.0 74.3,178.0 V190 Z" fill="#2a78d6"/>
               </g>
-              <text class="value-label" x="62.3" y="162.2" text-anchor="middle">3.9%</text>
+              <text class="value-label" x="62.3" y="168.0" text-anchor="middle">2.1%</text>
               <text class="tick" x="62.3" y="211" text-anchor="middle">A</text>
               <g class="bar-group">
-                <title>Grade B: 7.9% default rate (109,730 loans)</title>
+                <title>Grade B: 4.7% expected loss ($83.8m of $1,793.3m lent)</title>
                 <rect class="hit" x="84.6" y="22" width="44.6" height="168"/>
-                <path class="bar" d="M94.9,190 V149.8 Q94.9,145.8 98.9,145.8 H114.9 Q118.9,145.8 118.9,149.8 V190 Z" fill="#2a78d6"/>
+                <path class="bar" d="M94.9,190 V159.0 Q94.9,155.0 98.9,155.0 H114.9 Q118.9,155.0 118.9,159.0 V190 Z" fill="#2a78d6"/>
               </g>
               <text class="tick" x="106.9" y="211" text-anchor="middle">B</text>
               <g class="bar-group">
-                <title>Grade C: 11.4% default rate (100,245 loans)</title>
+                <title>Grade C: 7.5% expected loss ($133.9m of $1,776.9m lent)</title>
                 <rect class="hit" x="129.1" y="22" width="44.6" height="168"/>
-                <path class="bar" d="M139.4,190 V130.0 Q139.4,126.0 143.4,126.0 H159.4 Q163.4,126.0 163.4,130.0 V190 Z" fill="#2a78d6"/>
+                <path class="bar" d="M139.4,190 V137.5 Q139.4,133.5 143.4,133.5 H159.4 Q163.4,133.5 163.4,137.5 V190 Z" fill="#2a78d6"/>
               </g>
               <text class="tick" x="151.4" y="211" text-anchor="middle">C</text>
               <g class="bar-group">
-                <title>Grade D: 15.4% default rate (61,498 loans)</title>
+                <title>Grade D: 10.6% expected loss ($122.1m of $1,156.8m lent)</title>
                 <rect class="hit" x="173.7" y="22" width="44.6" height="168"/>
-                <path class="bar" d="M184.0,190 V107.9 Q184.0,103.9 188.0,103.9 H204.0 Q208.0,103.9 208.0,107.9 V190 Z" fill="#2a78d6"/>
+                <path class="bar" d="M184.0,190 V114.9 Q184.0,110.9 188.0,110.9 H204.0 Q208.0,110.9 208.0,114.9 V190 Z" fill="#2a78d6"/>
               </g>
               <text class="tick" x="196.0" y="211" text-anchor="middle">D</text>
               <g class="bar-group">
-                <title>Grade E: 19.5% default rate (28,612 loans)</title>
+                <title>Grade E: 14.2% expected loss ($89.0m of $625.0m lent)</title>
                 <rect class="hit" x="218.3" y="22" width="44.6" height="168"/>
-                <path class="bar" d="M228.6,190 V84.9 Q228.6,80.9 232.6,80.9 H248.6 Q252.6,80.9 252.6,84.9 V190 Z" fill="#2a78d6"/>
+                <path class="bar" d="M228.6,190 V87.2 Q228.6,83.2 232.6,83.2 H248.6 Q252.6,83.2 252.6,87.2 V190 Z" fill="#2a78d6"/>
               </g>
               <text class="tick" x="240.6" y="211" text-anchor="middle">E</text>
               <g class="bar-group">
-                <title>Grade F: 24.6% default rate (10,530 loans)</title>
+                <title>Grade F: 18.4% expected loss ($44.6m of $242.9m lent)</title>
                 <rect class="hit" x="262.9" y="22" width="44.6" height="168"/>
-                <path class="bar" d="M273.1,190 V56.5 Q273.1,52.5 277.1,52.5 H293.1 Q297.1,52.5 297.1,56.5 V190 Z" fill="#2a78d6"/>
+                <path class="bar" d="M273.1,190 V56.3 Q273.1,52.3 277.1,52.3 H293.1 Q297.1,52.3 297.1,56.3 V190 Z" fill="#2a78d6"/>
               </g>
               <text class="tick" x="285.1" y="211" text-anchor="middle">F</text>
               <g class="bar-group">
-                <title>Grade G: 27.2% default rate (2,654 loans)</title>
+                <title>Grade G: 20.5% expected loss ($14.0m of $68.2m lent)</title>
                 <rect class="hit" x="307.4" y="22" width="44.6" height="168"/>
-                <path class="bar" d="M317.7,190 V41.7 Q317.7,37.7 321.7,37.7 H337.7 Q341.7,37.7 341.7,41.7 V190 Z" fill="#2a78d6"/>
+                <path class="bar" d="M317.7,190 V40.2 Q317.7,36.2 321.7,36.2 H337.7 Q341.7,36.2 341.7,40.2 V190 Z" fill="#2a78d6"/>
               </g>
-              <text class="value-label" x="329.7" y="31.7" text-anchor="middle">27.2%</text>
+              <text class="value-label" x="329.7" y="30.2" text-anchor="middle">20.5%</text>
               <text class="tick" x="329.7" y="211" text-anchor="middle">G</text>
               <line class="baseline" x1="40" x2="352" y1="190" y2="190"/>
               <text class="axis-title" x="196" y="235" text-anchor="middle">Loan grade (A = lowest risk)</text>
             </svg>
               </div>
-              <p class="chart-note">Default = charged off, in default or 31–120 days late. Values come from the repository’s notebook output; Information Value for grade is 0.29.</p>
+              <p class="chart-note">Expected loss = probability of default × loss given default × exposure at default, added up over each grade’s loans. Default = charged off, in default or 31–120 days late. Values come from the repository’s notebook output.</p>
               <details class="data-table">
-                <summary>Default rate by loan grade — data table</summary>
-                <div class="table-scroll" role="region" aria-label="Default rate by grade data" tabindex="0">
+                <summary>Expected loss by loan grade — data table</summary>
+                <div class="table-scroll" role="region" aria-label="Expected loss by grade data" tabindex="0">
             <table>
-            <caption>Training set, Lending Club loans issued 2007–2014</caption>
-            <thead><tr><th scope="col">Grade</th><th scope="col">Loans</th><th scope="col">Defaults</th><th scope="col">Default rate</th><th scope="col">WoE</th></tr></thead>
+            <caption>All Lending Club loans issued 2007–2014. Expected loss rate = expected loss ÷ amount lent.</caption>
+            <thead><tr><th scope="col">Grade</th><th scope="col">Loans</th><th scope="col">Lent ($m)</th><th scope="col">Expected loss ($m)</th><th scope="col">Expected loss rate</th></tr></thead>
             <tbody>
-            <tr><th scope="row">A</th><td>59,759</td><td>2,328</td><td>3.9%</td><td>+1.108</td></tr>
-            <tr><th scope="row">B</th><td>109,730</td><td>8,667</td><td>7.9%</td><td>+0.358</td></tr>
-            <tr><th scope="row">C</th><td>100,245</td><td>11,451</td><td>11.4%</td><td>-0.050</td></tr>
-            <tr><th scope="row">D</th><td>61,498</td><td>9,452</td><td>15.4%</td><td>-0.392</td></tr>
-            <tr><th scope="row">E</th><td>28,612</td><td>5,572</td><td>19.5%</td><td>-0.678</td></tr>
-            <tr><th scope="row">F</th><td>10,530</td><td>2,586</td><td>24.6%</td><td>-0.975</td></tr>
-            <tr><th scope="row">G</th><td>2,654</td><td>722</td><td>27.2%</td><td>-1.113</td></tr>
+            <tr><th scope="row">A</th><td>74,867</td><td>1,000.9</td><td>21.3</td><td>2.1%</td></tr>
+            <tr><th scope="row">B</th><td>136,929</td><td>1,793.3</td><td>83.8</td><td>4.7%</td></tr>
+            <tr><th scope="row">C</th><td>125,293</td><td>1,776.9</td><td>133.9</td><td>7.5%</td></tr>
+            <tr><th scope="row">D</th><td>76,888</td><td>1,156.8</td><td>122.1</td><td>10.6%</td></tr>
+            <tr><th scope="row">E</th><td>35,757</td><td>625.0</td><td>89.0</td><td>14.2%</td></tr>
+            <tr><th scope="row">F</th><td>13,229</td><td>242.9</td><td>44.6</td><td>18.4%</td></tr>
+            <tr><th scope="row">G</th><td>3,322</td><td>68.2</td><td>14.0</td><td>20.5%</td></tr>
             </tbody>
+            <tfoot>
+            <tr><th scope="row">All</th><td>466,285</td><td>6,664.1</td><td>508.6</td><td>7.6%</td></tr>
+            </tfoot>
             </table>
                 </div>
               </details>
@@ -385,8 +388,8 @@
             </ul>
             <h3 id="p-cohort">Customer Retention: Who Came Back the Next Month?</h3>
             <ul class="project-summary">
-              <li>Used PostgreSQL to group <strong>4,339 retail customers</strong> by the month of their first recorded purchase.</li>
-              <li>Of customers first seen in December 2010, <strong>36.6%</strong> bought again the next month, compared with <strong>22.1%</strong> of those first seen in January 2011.</li>
+              <li>Used PostgreSQL to group <strong>4,338 retail customers</strong> by the month of their first recorded purchase.</li>
+              <li>About <strong>1 in 5</strong> new customers bought again the next month, from <strong>15.0%</strong> to <strong>24.0%</strong> across the January–October 2011 cohorts.</li>
             </ul>
             <ul class="tags" aria-label="Tools used">
               <li>PostgreSQL</li>
@@ -522,7 +525,7 @@
               <text class="tick" x="301" y="311">≥35%</text>
             </svg>
               </div>
-              <p class="chart-note">December 2011 is left out because the data ends on 9 December. Values come from the retention matrix produced by the repository’s SQL.</p>
+              <p class="chart-note">December 2011 is left out because the data ends on 9 December. The data starts on 1 December 2010, so the December 2010 cohort includes customers who were already buying before then, and it looks more loyal than the others. Values come from the retention matrix produced by the repository’s SQL.</p>
               <details class="data-table">
                 <summary>Cohort retention by month — data table</summary>
                 <div class="table-scroll" role="region" aria-label="Cohort retention data" tabindex="0">
@@ -563,7 +566,7 @@
             <li class="more-item">
               <span class="badge badge-neutral">Learning notes</span>
               <h4><a href="https://github.com/imdsarfraz/Building-Logistic-Regression">Logistic Regression from Scratch</a></h4>
-              <p>Implemented logistic regression in NumPy on <strong>100 simulated observations with two features</strong>. Plotted the decision boundary alongside the one from scikit-learn.</p>
+              <p>Built logistic regression step by step in NumPy, from the perceptron trick to gradient descent on the log loss, using <strong>100 simulated observations with two features</strong>. When the classes overlap, its coefficients match scikit-learn’s to about <strong>7 decimal places</strong>.</p>
               <p class="more-tools">Python · NumPy</p>
             </li>
             <li class="more-item">

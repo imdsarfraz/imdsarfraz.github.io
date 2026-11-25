@@ -36,8 +36,8 @@ Double-click `index.html` to open it in your browser. Refresh the browser after 
 ## Charts
 
 The two project charts are drawn from real outputs in the linked repositories:
-the retention matrix in `Cohort-Retention-Analysis` and the grade table printed in
-`Credit-Risk-Modeling/Credit_Risk_Modelling.ipynb`. Each chart has a "Show the data table"
+the retention matrix in `Cohort-Retention-Analysis` and the expected-loss-by-grade table printed in
+`Credit-Risk-Modeling/Credit_Risk_Modelling.ipynb` (Part 13.1). Each chart has a "Show the data table"
 button with the exact numbers. If the underlying analysis changes, update the chart and
 its table together so they never disagree.
 
