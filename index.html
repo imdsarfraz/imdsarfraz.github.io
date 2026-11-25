@@ -388,8 +388,8 @@
             </ul>
             <h3 id="p-cohort">Customer Retention: Who Came Back the Next Month?</h3>
             <ul class="project-summary">
-              <li>Used PostgreSQL to group <strong>4,339 retail customers</strong> by the month of their first recorded purchase.</li>
-              <li>Of customers first seen in December 2010, <strong>36.6%</strong> bought again the next month, compared with <strong>22.1%</strong> of those first seen in January 2011.</li>
+              <li>Used PostgreSQL to group <strong>4,338 retail customers</strong> by the month of their first recorded purchase.</li>
+              <li>About <strong>1 in 5</strong> new customers bought again the next month, from <strong>15.0%</strong> to <strong>24.0%</strong> across the January–October 2011 cohorts.</li>
             </ul>
             <ul class="tags" aria-label="Tools used">
               <li>PostgreSQL</li>
@@ -525,7 +525,7 @@
               <text class="tick" x="301" y="311">≥35%</text>
             </svg>
               </div>
-              <p class="chart-note">December 2011 is left out because the data ends on 9 December. Values come from the retention matrix produced by the repository’s SQL.</p>
+              <p class="chart-note">December 2011 is left out because the data ends on 9 December. The data starts on 1 December 2010, so the December 2010 cohort includes customers who were already buying before then, and it looks more loyal than the others. Values come from the retention matrix produced by the repository’s SQL.</p>
               <details class="data-table">
                 <summary>Cohort retention by month — data table</summary>
                 <div class="table-scroll" role="region" aria-label="Cohort retention data" tabindex="0">
@@ -566,7 +566,7 @@
             <li class="more-item">
               <span class="badge badge-neutral">Learning notes</span>
               <h4><a href="https://github.com/imdsarfraz/Building-Logistic-Regression">Logistic Regression from Scratch</a></h4>
-              <p>Implemented logistic regression in NumPy on <strong>100 simulated observations with two features</strong>. Plotted the decision boundary alongside the one from scikit-learn.</p>
+              <p>Built logistic regression step by step in NumPy, from the perceptron trick to gradient descent on the log loss, using <strong>100 simulated observations with two features</strong>. When the classes overlap, its coefficients match scikit-learn’s to about <strong>7 decimal places</strong>.</p>
               <p class="more-tools">Python · NumPy</p>
             </li>
             <li class="more-item">
